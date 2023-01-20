@@ -1,0 +1,11 @@
+
+<robot name="my_car" xmlns:xacro="http://wiki.ros.org/xacro">
+    <xacro:include filename="inertia.xacro" />
+    <xacro:include filename="autolabor_car_base_urdf_gazebo.xacro" />
+    <xacro:include filename="autolabor_car_laser_urdf_gazebo.xacro" />
+
+    <xacro:include filename="autolabor_car_diff_move_gazebo.xacro" />
+    <xacro:include filename="autolabor_car_laser_config_gazebo.xacro" />
+    
+</robot>
+

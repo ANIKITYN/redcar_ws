@@ -1,0 +1,8 @@
+<launch>
+
+  <node pkg="waypoint_generator" type="generator.py" name="waypoint_generator" output="screen" >
+    <param name="filename" value="$(find waypoint_touring)/data/output.txt" />
+  </node>
+
+
+</launch>

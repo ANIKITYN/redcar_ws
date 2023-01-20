@@ -1,0 +1,178 @@
+<?xml version="1.0" ?>
+<robot name="robot">
+
+<!--///////////////////////////base body//////////////////////////-->
+    <!-- base body -->
+    <link name="base_link">
+        <visual>
+            <origin xyz=" 0 0 0" rpy="0 0 0" />
+            <geometry>
+                <sphere radius="0.0001"/>
+            </geometry>
+            <material name="blue">
+                <color rgba="0 0 1 1"/>
+            </material>
+        </visual>
+    </link>
+
+<!--/////////////////////////base point/////////////////////-->    
+    <!-- base point --> 
+    
+    <joint name="base_link_car_body" type="fixed">
+        <origin xyz="0 0 0.375" rpy="0 0 0"/>
+        <parent link="base_link"/>
+        <child link="car_body"/>
+        <axis xyz="0 0 0"/>
+    </joint>
+   
+    <link name="car_body">
+        <visual>
+            <geometry>                
+                <box size="0.85 0.68 0.55"/>
+            </geometry>
+            <material name="red">
+                <color rgba="1 0 0 0.3"/>
+            </material>
+        </visual>
+    </link>
+    
+<!--/////////////////////////left tire//////////////////////-->
+    <!-- left tire-->
+    
+    <joint name="left_wheel_joint" type="continuous">
+        <origin xyz="-0.175 0.40 -0.275" rpy="0 0 0"/>
+        <parent link="car_body"/>
+        <child link="left_wheel_link"/>
+        <axis xyz="0 1 0"/>
+    </joint>
+
+    <link name="left_wheel_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="1.5707 0 0" />
+            <geometry>
+                <cylinder radius="0.10" length = "0.12"/>
+            </geometry>
+            <material name="black">
+                <color rgba="0 0 0 1"/>
+            </material>
+        </visual>
+    </link>
+    
+<!--/////////////////////////right tire/////////////////////-->
+    <!-- right tire -->
+    
+    <joint name="right_wheel_joint" type="continuous">
+        <origin xyz="-0.175 -0.40 -0.275" rpy="0 0 0"/>
+        <parent link="car_body"/>
+        <child link="right_wheel_link"/>
+        <axis xyz="0 1 0"/>
+    </joint>
+
+    <link name="right_wheel_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="1.5707 0 0" />
+            <geometry>
+                <cylinder radius="0.10" length = "0.12"/>
+            </geometry>
+            <material name="black">
+                <color rgba="0 0 0 1"/>
+            </material>
+        </visual>
+    </link>
+    
+
+<!--///////////////////////////front tire///////////////////////-->
+    <!-- front tire -->
+    
+    <joint name="front_caster_joint" type="continuous">
+        <origin xyz="0.3 0 -0.275" rpy="0 0 0"/>
+        <parent link="car_body"/>
+        <child link="front_caster_link"/>
+        <axis xyz="1 1 1"/>
+    </joint>
+
+    <link name="front_caster_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <sphere radius="0.1" />
+            </geometry>
+            <material name="black">
+                <color rgba="0 0 0 1"/>
+            </material>
+        </visual>
+    </link>
+     
+
+<!--////////////////////////////laser/////////////////////////-->
+    <!-- laser -->
+    <link name="laser">
+	<visual>
+	    <origin xyz=" 0 0 0 " rpy="0 0 0" />
+	    <geometry>
+		<cylinder length="0.042" radius="0.02"/>
+	    </geometry>
+	    <material name="black"/>
+	</visual>
+    </link>
+
+    <joint name="laser_joint" type="fixed">
+        <origin xyz="0 0 0.051" rpy="0 0 0"/>
+        <parent link="support_laser"/>
+        <child link="laser"/>
+    </joint>
+  
+<!--
+    <joint name="laser_joint" type="fixed">
+        <origin xyz="0.08 0.035 0.2245" rpy="0 0 0"/>
+        <parent link="base_footprint"/>
+        <child link="laser"/>
+    </joint>
+-->
+
+<!--///////////////////////////laser support//////////////////////-->
+    <!-- laser support --> 
+      
+    <link name="support_laser">
+		<visual>
+			<origin xyz=" 0 0 0 " rpy="0 0 0" />
+			<geometry>
+				<box size="0.06 0.06 0.06"/>
+			</geometry>
+			<material name="blue">
+			        <color rgba="0 0 1 1"/>
+                        </material>
+		</visual>
+    </link>
+
+    <joint name="support_laser_joint" type="fixed">
+        <origin xyz="-0.375 0 0.275" rpy="0 0 0"/>
+        <parent link="car_body"/>
+        <child link="support_laser"/>
+    </joint>
+    
+
+<!--////////////////////////imu///////////////////////-->
+    <!-- imu -->
+    <link name="imu_link">
+		<visual>
+			<origin xyz=" 0 0 0 " rpy="0 0 0" />
+			<geometry>
+				<box size="0.03 0.04 0.01"/>
+			</geometry>
+			<material name="green">
+			        <color rgba="0 1 0 1"/>
+                        </material>
+		</visual>
+    </link>
+
+    <joint name="base_imu_joint" type="fixed">
+        <origin xyz="-0.375 0.30 0.275" rpy="0 0 0"/>
+        <parent link="car_body"/>
+        <child link="imu_link"/>
+    </joint>
+
+<!--  ///////////////////////jetson nano/////////////////////// -->
+    
+</robot>
+

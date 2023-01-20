@@ -1,0 +1,9 @@
+小车仿真
+
+订阅clicked_point
+记录到文本文件
+roslaunch waypoint_generator waypoint_generator.launch
+
+读取文本文件
+roslaunch waypoint_touring waypoint_touring.launch
+

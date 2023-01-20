@@ -1,0 +1,61 @@
+waypoints:
+- frame_id: map
+  name: 2.95223069191_0.439977526665
+  pose:
+    orientation:
+      w: 1
+      x: 0
+      y: 0
+      z: 0
+    position:
+      x: 2.95223069190979
+      y: 0.4399775266647339
+      z: 0.0
+- frame_id: map
+  name: 3.05933594704_3.09013772011
+  pose:
+    orientation:
+      w: 1
+      x: 0
+      y: 0
+      z: 0
+    position:
+      x: 3.059335947036743
+      y: 3.0901377201080322
+      z: 0.0
+- frame_id: map
+  name: 0.800106227398_5.60802936554
+  pose:
+    orientation:
+      w: 1
+      x: 0
+      y: 0
+      z: 0
+    position:
+      x: 0.8001062273979187
+      y: 5.608029365539551
+      z: 0.0
+- frame_id: map
+  name: -3.15217733383_5.72877836227
+  pose:
+    orientation:
+      w: 1
+      x: 0
+      y: 0
+      z: 0
+    position:
+      x: -3.152177333831787
+      y: 5.72877836227417
+      z: 0.0
+- frame_id: map
+  name: -7.54515361786_5.72688579559
+  pose:
+    orientation:
+      w: 1
+      x: 0
+      y: 0
+      z: 0
+    position:
+      x: -7.545153617858887
+      y: 5.726885795593262
+      z: 0.0

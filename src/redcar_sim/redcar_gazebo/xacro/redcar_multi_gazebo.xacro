@@ -1,0 +1,12 @@
+<robot name="redcar" xmlns:xacro="http://wiki.ros.org/xacro">
+
+  <xacro:include filename="inertia.xacro" />
+  <xacro:include filename="redcar_base_body_urdf_gazebo.xacro" />
+  <xacro:include filename="redcar_laser_urdf_gazebo.xacro" />
+  <xacro:include filename="redcar_imu_urdf_gazebo.xacro" />
+
+  <xacro:include filename="redcar_diff_move_gazebo.xacro" />
+  <xacro:include filename="redcar_laser_config_gazebo.xacro" />
+  <xacro:include filename="redcar_imu_config_gazebo.xacro" />
+
+</robot>

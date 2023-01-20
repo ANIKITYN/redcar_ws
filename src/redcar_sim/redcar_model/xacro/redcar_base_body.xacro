@@ -1,0 +1,110 @@
+<!--
+    使用 xacro 优化 URDF 版的小车底盘实现：
+
+    实现思路:
+    1.将一些常量、变量封装为 xacro:property
+      比如:PI 值、小车底盘半径、离地间距、车轮半径、宽度 ....
+    2.使用 宏 封装驱动轮以及支撑轮实现，调用相关宏生成驱动轮与支撑轮
+
+-->
+<!-- 根标签，必须声明 xmlns:xacro -->
+<robot name="body_of_redcar" xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <!-- 封装变量、常量 -->
+    <xacro:property name="PI" value="3.141"/>
+    <!-- 宏:黑色设置 -->
+<!--
+    <material name="black">
+        <color rgba="0.0 0.0 0.0 1.0" />
+    </material>
+-->
+    <!-- 底盘属性 -->
+    <xacro:property name="base_link_radius" value="0.0001" /> <!-- base_link 半径 -->
+    <xacro:property name="car_body_length" value="0.85" /> <!-- car_body 长 -->
+    <xacro:property name="car_body_width" value="0.68" /> <!-- car_body 宽 -->
+    <xacro:property name="car_body_height" value="0.55" /> <!-- car_body 高 -->
+    <xacro:property name="earth_space" value="0.1" /> <!-- 离地间距 -->
+
+    <!-- point -->
+    <link name="base_link">
+      <visual>
+        <geometry>
+          <sphere radius="${base_link_radius}" />
+        </geometry>
+        <material name="blue">
+          <color rgba="0 0 1 1"/>
+        </material>
+      </visual>
+    </link>
+
+    <!-- 底盘 -->
+    <link name="car_body">
+      <visual>
+        <geometry>
+          <box size="${car_body_length} ${car_body_width} ${car_body_height}" />
+        </geometry>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <material name="red">
+          <color rgba="1.0 0.0 0.0 0.3" />
+        </material>
+      </visual>
+    </link>
+
+    <joint name="base_link_car_body" type="fixed">
+      <parent link="base_link" />
+      <child link="car_body" />
+      <origin xyz="0 0 ${earth_space + car_body_height / 2 }" />
+    </joint>
+
+
+    <!-- 驱动轮 -->
+    <!-- 驱动轮属性 -->
+    <xacro:property name="wheel_radius" value="0.1" /> <!-- 半径 -->
+    <xacro:property name="wheel_length" value="0.12" /> <!-- 宽度 -->
+    <!-- 驱动轮宏实现 -->
+    <xacro:macro name="add_wheels" params="name flag">
+      <link name="${name}_wheel">
+        <visual>
+          <geometry>
+            <cylinder radius="${wheel_radius}" length="${wheel_length}" />
+          </geometry>
+          <origin xyz="0.0 0.0 0.0" rpy="${PI / 2} 0.0 0.0" />
+          <material name="black">
+            <color rgba="0 0 0 1"/>
+          </material>
+        </visual>
+      </link>
+
+      <joint name="${name}_wheel_joint" type="continuous">
+        <parent link="car_body" />
+        <child link="${name}_wheel" />
+        <origin xyz="-0.175 ${flag * (car_body_width / 2)} ${-(car_body_height / 2)}" />
+        <axis xyz="0 1 0" />
+      </joint>
+    </xacro:macro>
+    <xacro:add_wheels name="base_l" flag="1" />
+    <xacro:add_wheels name="base_r" flag="-1" />
+
+    <!-- 支撑轮 -->
+    <!-- 支撑轮属性 -->
+    <xacro:property name="support_wheel_radius" value="0.1" /> <!-- 支撑轮半径 -->
+    
+    <link name="front_wheel">
+      <visual>
+        <geometry>
+          <sphere radius="${support_wheel_radius}" />
+        </geometry>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <material name="black">
+          <color rgba="0 0 0 1"/>
+        </material>
+      </visual>
+    </link>
+
+    <joint name="front_wheel2car_body" type="continuous">
+      <parent link="car_body" />
+      <child link="front_wheel" />
+      <origin xyz="${(car_body_length / 2) - support_wheel_radius} 0 ${- (car_body_height / 2)}" rpy="0 0 0"/>
+      <axis xyz="1 1 1" />
+    </joint>
+    
+</robot>

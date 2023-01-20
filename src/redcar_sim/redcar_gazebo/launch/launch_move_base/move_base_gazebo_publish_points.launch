@@ -1,0 +1,15 @@
+<launch>
+<!--
+    <include file="$(find redcar_gazebo)/move_base_launch_xml/move_base_cooneo.launch.xml" />
+-->
+
+<!--
+    <include file="$(find redcar_gazebo)/move_base_launch_xml/move_base_flypanda.launch.xml" />
+-->
+
+
+    <include file="$(find redcar_gazebo)/move_base_launch_xml/move_base_publish_points.launch.xml" />
+
+   
+</launch>
+

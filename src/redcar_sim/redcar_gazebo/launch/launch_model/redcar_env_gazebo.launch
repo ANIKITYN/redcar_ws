@@ -1,0 +1,8 @@
+<launch>
+
+  <!-- 启动 gazebo -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch" >
+    <arg name="world_name" value="$(find redcar_gazebo)/world/autolabor_box_house.world" />
+  </include>
+
+</launch>

@@ -1,0 +1,13 @@
+waypoints:
+- frame_id: map
+  name: 2.43199253082_4.7533121109
+  pose:
+    orientation:
+      w: 1
+      x: 0
+      y: 0
+      z: 0
+    position:
+      x: 2.431992530822754
+      y: 4.753312110900879
+      z: 0.0

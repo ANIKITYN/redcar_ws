@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>redcar_sim</name>
+  <version>1.2.6</version>
+  <description>
+    redcar_sim (meta package)
+  </description>
+  <license>Apache 2.0</license>
+  <license>BSD</license>
+  <license>TODO</license>
+  <maintainer email="memo@todo.todo">memo</maintainer>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <exec_depend>redcar_model</exec_depend>
+  <exec_depend>redcar_send_goals</exec_depend>
+  <exec_depend>redcar_waypoint_global_planner</exec_depend>
+  <exec_depend>redcar_show_path</exec_depend>
+  <!--<exec_depend></exec_depend>
+  <exec_depend></exec_depend>
+  <exec_depend></exec_depend>-->
+  <export><metapackage/></export>
+</package>

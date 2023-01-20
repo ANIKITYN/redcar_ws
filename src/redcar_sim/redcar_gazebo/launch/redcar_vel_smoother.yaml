@@ -1,0 +1,17 @@
+# Mandatory parameters
+speed_lim_v: 0.5     # 线速度的最大值
+speed_lim_w: 1.0     # 角速度的最大值
+
+accel_lim_v: 0.5     # 线加速度的最大值
+accel_lim_w: 1.0     # 角加速度的最大值
+
+# Optional parameters
+frequency: 20.0      # 输出速度的频率，不管输入的数据频率，velocity smoother会保持这个频率发布数据
+decel_factor: 5.0    # 减速/加速度比，对于惯性较大可以提高该值
+
+# Robot velocity feedback type:
+# 0 - none
+# 1 - odometry
+# 2 - end robot commands
+robot_feedback: 2    # 机器人对此发布数据的反馈
+

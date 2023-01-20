@@ -1,0 +1,23 @@
+<launch>
+
+  <include file="$(find redcar_gazebo)/launch/launch_model/redcar_model2env_gazebo.launch" />
+
+  <include file="$(find redcar_gazebo)/launch/launch_move_base/move_base_gazebo_dwa.launch" />
+
+  <include file="$(find redcar_gazebo)/launch/launch_gmapping/gmapping_gazebo.launch" />
+
+  <!-- 设置地图的配置文件 -->
+  <arg name="map" default="map.yaml" />
+
+  <!-- 运行地图服务器，并且加载设置的地图-->
+  <node name="map_server" pkg="map_server" type="map_server" args="$(find redcar_gazebo)/map/$(arg map)" />
+
+  <!-- 启动AMCL节点 -->
+  <!--<include file="$(find redcar_gazebo)/launch/launch_amcl/amcl_diff_gazebo.launch" />-->
+
+  <!-- 启动robot_localization节点 -->
+  <!--<include file="$(find redcar_gazebo)/launch/redcar_robot_localization_gazebo.launch" />-->
+
+  <node pkg="rviz" type="rviz" name="rviz" args="-d $(find redcar_gazebo)/rviz/redcar_gazebo.rviz" />
+
+</launch>

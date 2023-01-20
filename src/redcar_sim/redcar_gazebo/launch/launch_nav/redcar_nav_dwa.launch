@@ -1,0 +1,11 @@
+<launch>
+
+  <include file="$(find redcar_gazebo)/launch/launch_model/redcar_model2env_gazebo.launch" />
+  <include file="$(find redcar_gazebo)/launch/launch_nav/redcar_nav_gazebo.launch" />
+
+  <include file="$(find redcar_gazebo)/launch/launch_move_base/move_base_gazebo_dwa.launch" />
+<!--  
+  <include file="$(find redcar_gazebo)/launch/redcar_vel_smoother.launch" />
+  <include file="$(find redcar_gazebo)/launch/redcar_safety_controller.launch" />
+-->
+</launch>

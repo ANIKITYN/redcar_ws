@@ -1,0 +1,16 @@
+<launch>
+  <param name="robot_description" textfile="$(find redcar_model)/urdf/robot_description_RedCar_2.urdf" />
+
+  <!-- 运行joint_state_publisher_gui节点，发布机器人的关节状态  -->
+  <!--
+  <node name="joint_state_publisher_gui" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" />
+  -->
+	
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+  <!-- 运行robot_state_publisher节点，发布tf,将机器人的连杆关节之间的关系，通过TF的形式，整理成三维姿态发布出去  -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+  
+  <node pkg="rviz" type="rviz" name="rviz" args="-d $(find redcar_model)/rviz/redcar_rviz.rviz" />
+	
+</launch>
+

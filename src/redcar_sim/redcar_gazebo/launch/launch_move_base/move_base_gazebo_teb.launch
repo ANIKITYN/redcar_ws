@@ -1,0 +1,3 @@
+<launch>  
+  <include file="$(find redcar_gazebo)/move_base_launch_xml/move_base_teb.launch.xml" />
+</launch>

@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>pure_persuit</name>
+  <version>1.2.6</version>
+  <description>
+    pure_persuit (meta package)
+  </description>
+  <license>Apache 2.0</license>
+  <license>BSD</license>
+  <license>TODO</license>
+  <maintainer email="memo@todo.todo">memo</maintainer>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <exec_depend>f1tenth_simulator</exec_depend>
+  <exec_depend>tianracer_navigation</exec_depend>
+  <exec_depend>tianracer_rviz</exec_depend>
+  <!--<exec_depend></exec_depend>
+  <exec_depend></exec_depend>
+  <exec_depend></exec_depend>
+  <exec_depend></exec_depend>-->
+  <export><metapackage/></export>
+</package>
