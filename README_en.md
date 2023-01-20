@@ -1,12 +1,10 @@
 # ROS1 Simulation
 
-
-
 ## Environment
 
 ubuntu 18.04 + ROS Melodic desktop full 
 
-## configuration
+## Configuration
 
 Step 1：
 
@@ -36,5 +34,10 @@ redcar_ws/src/redcar_sim/redcar_gazebo/map/map.yaml
 # Change the path of the first line of this file to your own name
 ```
 
+## Run
+```bash
+roslaunch redcar_gazebo redcar_gmapping_nav.launch
+```
+There are other functions, which will not be illustrated here.
 
 
